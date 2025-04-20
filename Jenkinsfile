@@ -14,8 +14,6 @@ pipeline {
                 // Create virtual environment using Python
                 bat 'python -m venv venv' // Windows command for creating virtualenv
                 bat 'venv\\Scripts\\activate && pip install -r requirements.txt' // Activate virtualenv and install dependencies
-                // Install distutils if it's missing
-                bat 'venv\\Scripts\\activate && pip install distutils' // Install distutils explicitly
             }
         }
         stage('Run Tests') {

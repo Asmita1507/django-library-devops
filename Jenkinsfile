@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'your-github-credentials-id', url: 'https://github.com/Asmita1507/django-library-devops.git'
+                git branch: 'main', url: 'https://github.com/Asmita1507/django-library-devops.git'
             }
         }
         stage('Install Dependencies') {

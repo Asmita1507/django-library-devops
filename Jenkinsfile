@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        python 'Python310'
-    }
     environment {
         DJANGO_SETTINGS_MODULE = 'library.settings'
     }
@@ -14,7 +11,7 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'python -m venv venv'
+                sh 'python3 -m venv venv'  // Assuming python3 is available in the system
                 sh '. venv/bin/activate && pip install -r requirements.txt'
             }
         }

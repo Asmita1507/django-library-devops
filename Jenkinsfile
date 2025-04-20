@@ -11,13 +11,16 @@ pipeline {
         }
         stage('Install Dependencies') {
             steps {
-                sh 'python3 -m venv venv'  // Assuming python3 is available in the system
-                sh '. venv/bin/activate && pip install -r requirements.txt'
+                // Create virtual environment using Python
+                // Adjusting Python command for your system if needed
+                bat 'python -m venv venv' // Windows command for creating virtualenv
+                bat 'venv\\Scripts\\activate && pip install -r requirements.txt' // Activate virtualenv and install dependencies
             }
         }
         stage('Run Tests') {
             steps {
-                sh '. venv/bin/activate && python manage.py test --verbosity=2'
+                // Running tests inside the activated virtual environment
+                bat 'venv\\Scripts\\activate && python manage.py test --verbosity=2' // Run the tests
             }
         }
     }

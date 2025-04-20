@@ -1,36 +1,38 @@
 pipeline {
     agent any
-
+    tools {
+        python 'Python310'
+    }
+    environment {
+        DJANGO_SETTINGS_MODULE = 'library.settings'
+    }
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                git 'https://github.com/Asmita1507/django-library-devops.git'
+                git branch: 'main', credentialsId: 'your-github-credentials-id', url: 'https://github.com/Asmita1507/django-library-devops.git'
             }
         }
-
         stage('Install Dependencies') {
             steps {
-                sh '''
-                    python -m venv venv
-                    source venv/bin/activate || venv\\Scripts\\activate
-                    pip install -r requirements.txt
-                '''
+                sh 'python -m venv venv'
+                sh '. venv/bin/activate && pip install -r requirements.txt'
             }
         }
-
         stage('Run Tests') {
             steps {
-                sh '''
-                    source venv/bin/activate || venv\\Scripts\\activate
-                    python manage.py test
-                '''
+                sh '. venv/bin/activate && python manage.py test --verbosity=2'
             }
         }
     }
-
     post {
         always {
-            echo "Pipeline execution completed"
+            echo 'Testing completed!'
+        }
+        success {
+            echo 'All tests passed!'
+        }
+        failure {
+            echo 'Some tests failed!'
         }
     }
 }

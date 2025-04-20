@@ -12,9 +12,10 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Create virtual environment using Python
-                // Adjusting Python command for your system if needed
                 bat 'python -m venv venv' // Windows command for creating virtualenv
                 bat 'venv\\Scripts\\activate && pip install -r requirements.txt' // Activate virtualenv and install dependencies
+                // Install distutils if it's missing
+                bat 'venv\\Scripts\\activate && pip install distutils' // Install distutils explicitly
             }
         }
         stage('Run Tests') {

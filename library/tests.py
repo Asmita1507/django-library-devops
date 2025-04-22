@@ -57,12 +57,12 @@ class LibraryViewTest(TestCase):
 
     def test_viewbook_view(self):
         """Test that viewbook_view returns 200 and uses correct template for admin."""
-        response = self.client.get(reverse('view_book'))
+        response = self.client.get(reverse('library:view_book'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'library/viewbook.html')
 
     def test_viewstudent_view(self):
         """Test that viewstudent_view returns 200 and uses correct template for admin."""
-        response = self.client.get(reverse('view_student'))
+        response = self.client.get(reverse('library:view_student'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'library/viewstudent.html')

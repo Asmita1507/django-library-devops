@@ -17,8 +17,8 @@ class BookModelTest(TestCase):
         self.assertEqual(self.book.isbn, "1234567890123")
 
     def test_book_str(self):
-        """Test that the string representation of a Book is its name."""
-        self.assertEqual(str(self.book), "Simple Book")
+        """Test that the string representation of a Book is its name and isbn."""
+        self.assertEqual(str(self.book), "Simple Book[1234567890123]")
 
 class StudentExtraModelTest(TestCase):
     def setUp(self):

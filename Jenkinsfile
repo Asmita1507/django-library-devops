@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
-        DOCKER_IMAGE = "sagar/django-library"
+        DOCKER_IMAGE = "harshada2528/django-library"
     }
     stages {
         stage('Checkout') {

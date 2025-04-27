@@ -7,7 +7,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required,user_passes_test
 from datetime import datetime,timedelta,date
 from django.core.mail import send_mail
-#from librarymanagement.settings import EMAIL_HOST_USER
+from librarymanagement.settings import EMAIL_HOST_USER
 
 
 def home_view(request):

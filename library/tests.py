@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Book   # use relative import if needed
+from .models import Book  
 
 class BookModelTest(TestCase):
 

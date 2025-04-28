@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from . import models 
-
+#forms.py
 class ContactusForm(forms.Form):
     Name = forms.CharField(max_length=30)
     Email = forms.EmailField()

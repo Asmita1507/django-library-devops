@@ -20,10 +20,6 @@ class BookModelTest(TestCase):
         """Test that the string representation of a Book is its name and isbn."""
         self.assertEqual(str(self.book), "Simple Book[1234567890123]")
 
-    def test_book_fail(self):
-        """This test is intentionally designed to fail."""
-        self.assertEqual(self.book.name, "Wrong Book Name")  # This will fail!
-
 class StudentExtraModelTest(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(username='student', password='testpass')
